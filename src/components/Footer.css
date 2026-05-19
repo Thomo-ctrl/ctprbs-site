@@ -1,0 +1,24 @@
+.footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.5);
+  padding: 2rem 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-brand {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  font-weight: 400;
+}
+
+.footer-copy {
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
