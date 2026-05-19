@@ -19,36 +19,73 @@
 
 .navbar-inner {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
+/* Brand block: logo + motto stacked */
+.navbar-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
 .navbar-logo {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   letter-spacing: 0.04em;
   color: var(--text);
   font-weight: 400;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  transition: color 0.2s;
 }
 
+.navbar-logo:hover {
+  color: var(--warm);
+}
+
+.navbar-motto {
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 300;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* Nav links (home page only) */
 .navbar-links {
   display: flex;
   list-style: none;
   gap: 2.5rem;
+  align-self: center;
 }
 
-.navbar-links a {
+.navbar-links button {
   font-size: 0.78rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-muted);
   font-weight: 400;
-  transition: color 0.2s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s, transform 0.2s;
+  font-family: 'Inter', sans-serif;
 }
 
-.navbar-links a:hover {
+.navbar-links button:hover {
   color: var(--accent);
+  transform: translateY(-1px);
 }
 
+/* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -57,6 +94,7 @@
   border: none;
   cursor: pointer;
   padding: 4px;
+  align-self: center;
 }
 
 .hamburger span {

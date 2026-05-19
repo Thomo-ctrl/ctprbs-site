@@ -1,0 +1,80 @@
+.igc {
+  /* content padding comes from PageLayout .pl-content */
+}
+
+.igc-intro {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.9;
+  max-width: 620px;
+  margin-bottom: 2.5rem;
+}
+
+/* ─── Embed ─────────────────────────────────────── */
+.igc-embed-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.igc-embed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ─── Channel row ────────────────────────────────── */
+.igc-channel-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+
+.igc-subscribe {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.igc-channel-note {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  font-style: italic;
+}
+
+/* ─── Premise blocks ─────────────────────────────── */
+.igc-premise {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 2.5rem;
+}
+
+.igc-premise-item p:last-child {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .igc-premise {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .igc-channel-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}

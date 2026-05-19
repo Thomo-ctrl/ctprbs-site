@@ -1,9 +1,18 @@
 import { useState, useEffect } from 'react'
 import './Navbar.css'
 
-export default function Navbar() {
+const LINKS = [
+  { id: 'about',    label: 'About' },
+  { id: 'services', label: 'Services' },
+  { id: 'ideas',    label: 'Blueprint' },
+  { id: 'igc',      label: 'In Great Company' },
+  { id: 'contact',  label: 'Contact' },
+]
+
+export default function Navbar({ currentPage, navigate }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const isHome = currentPage === 'home'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -11,35 +20,40 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const links = [
-    { href: '#about', label: 'About' },
-    { href: '#services', label: 'Services' },
-    { href: '#ideas', label: 'Blueprint' },
-    { href: '#contact', label: 'Contact' },
-  ]
+  const handleNav = (id) => {
+    setMenuOpen(false)
+    navigate(id)
+  }
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-inner container">
-        <a href="#" className="navbar-logo">
-          <span className="serif">Ceteris Paribus</span>
-        </a>
+        <div className="navbar-brand">
+          <button className="navbar-logo serif" onClick={() => navigate('home')}>
+            Ceteris Paribus
+          </button>
+          <span className="navbar-motto">In hoc vita ad invicem serviendum</span>
+        </div>
 
-        <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
-          {links.map(l => (
-            <li key={l.href}>
-              <a href={l.href} onClick={() => setMenuOpen(false)}>{l.label}</a>
-            </li>
-          ))}
-        </ul>
+        {isHome && (
+          <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
+            {LINKS.map(l => (
+              <li key={l.id}>
+                <button onClick={() => handleNav(l.id)}>{l.label}</button>
+              </li>
+            ))}
+          </ul>
+        )}
 
-        <button
-          className={`hamburger ${menuOpen ? 'active' : ''}`}
-          onClick={() => setMenuOpen(o => !o)}
-          aria-label="Toggle menu"
-        >
-          <span /><span /><span />
-        </button>
+        {isHome && (
+          <button
+            className={`hamburger ${menuOpen ? 'active' : ''}`}
+            onClick={() => setMenuOpen(o => !o)}
+            aria-label="Toggle menu"
+          >
+            <span /><span /><span />
+          </button>
+        )}
       </div>
     </nav>
   )

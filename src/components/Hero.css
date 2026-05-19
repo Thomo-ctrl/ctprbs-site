@@ -5,44 +5,78 @@
   justify-content: center;
   background: var(--bg-soft);
   position: relative;
-  padding: 8rem 0 5rem;
+  padding: 8rem 0 6rem;
+}
+
+/* === Left crest: Sovereign & Greene — left half of crest.jpg === */
+.hero-crest-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 44%;
   overflow: hidden;
-}
-
-/* Faded backdrop images */
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('/banner.jpg');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.06;
-  filter: grayscale(60%) blur(1px);
+  opacity: 0.09;
+  filter: grayscale(50%);
   pointer-events: none;
+  z-index: 0;
 }
 
-.hero::after {
-  content: '';
+.hero-crest-img {
+  /* Show only left half of image */
+  width: 200%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+/* === CP Mark — top-right corner, right half of crest.jpg === */
+.hero-mark {
   position: absolute;
-  right: -5%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 520px;
-  height: 520px;
-  background-image: url('/crest.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0.05;
-  filter: grayscale(80%);
+  top: 5rem;
+  right: 3rem;
+  width: 160px;
+  height: 200px;
+  overflow: hidden;
+  opacity: 0.22;
+  filter: grayscale(40%);
   pointer-events: none;
+  z-index: 4;
+  transition: opacity 0.4s ease, filter 0.4s ease;
 }
 
+.hero-mark:hover {
+  opacity: 0.55;
+  filter: grayscale(0%);
+}
+
+.hero-mark-img {
+  /* Show only right half of image */
+  width: 200%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  margin-left: -100%;
+}
+
+/* === Wave SVG — top right === */
+.hero-waves {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 380px;
+  height: 280px;
+  color: var(--warm);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* === Hero inner content === */
 .hero-inner {
-  max-width: 700px;
+  max-width: 680px;
   position: relative;
-  z-index: 1;
+  z-index: 5;
 }
 
 .hero-eyebrow {
@@ -73,17 +107,33 @@
   margin-bottom: 1.5rem;
 }
 
-.hero-sub {
-  font-size: 0.95rem;
-  color: var(--text-muted);
+/* Sub-text block */
+.hero-sub-block {
   max-width: 520px;
-  line-height: 1.8;
   margin-bottom: 2.5rem;
 }
 
-.hero-sub strong {
-  color: var(--text);
+.hero-sub-role {
+  font-size: 0.82rem;
   font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.hero-sub-star {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.hero-sub-body {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  line-height: 1.85;
 }
 
 .hero-actions {
@@ -92,6 +142,7 @@
   flex-wrap: wrap;
 }
 
+/* Scroll hint line */
 .hero-scroll-hint {
   position: absolute;
   bottom: 2rem;
@@ -100,7 +151,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 1;
+  z-index: 5;
 }
 
 .hero-scroll-hint span {
@@ -116,7 +167,10 @@
   50% { opacity: 1; transform: scaleY(1.2); }
 }
 
+/* Mobile */
 @media (max-width: 600px) {
   .hero-name { white-space: normal; font-size: 1.7rem; }
-  .hero::after { display: none; }
+  .hero-mark { display: none; }
+  .hero-waves { display: none; }
+  .hero-crest-left { width: 100%; opacity: 0.05; }
 }

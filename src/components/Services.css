@@ -2,6 +2,11 @@
   background: var(--bg-soft);
 }
 
+.services--page {
+  background: transparent;
+  padding: 0;
+}
+
 .services-header {
   margin-bottom: 4rem;
 }

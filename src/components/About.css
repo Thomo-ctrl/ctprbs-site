@@ -2,6 +2,11 @@
   background: var(--bg);
 }
 
+/* When used as a standalone page inside PageLayout */
+.about--page {
+  padding: 0;
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

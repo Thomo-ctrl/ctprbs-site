@@ -107,3 +107,14 @@ section {
   background: var(--warm);
   margin: 1.5rem 0;
 }
+
+/* Page transition */
+.site-hidden { visibility: hidden; opacity: 0; }
+.site-visible { visibility: visible; opacity: 1; transition: opacity 0.4s ease; }
+
+/* Hover float on all links */
+a:hover {
+  transform: translateY(-1px);
+  transition: transform 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+a { transition: transform 0.2s ease, color 0.2s ease, opacity 0.2s ease; }
