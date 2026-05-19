@@ -1,3 +1,4 @@
+import Counter from './Counter'
 import './Hero.css'
 
 export default function Hero() {
@@ -9,7 +10,7 @@ export default function Hero() {
         </div>
 
         <h1 className="hero-name serif">
-          Jaka&apos; Thomo<br />Ka&apos;Thomo
+          Jaka&apos; Thomo Ka&apos;Thomo
         </h1>
 
         <div className="hero-divider" />
@@ -26,8 +27,10 @@ export default function Hero() {
 
         <div className="hero-actions">
           <a href="#contact" className="btn btn-primary">Work With Us</a>
-          <a href="#about" className="btn btn-outline">Learn More</a>
+          <a href="#ideas" className="btn btn-outline">The Blueprint</a>
         </div>
+
+        <Counter />
       </div>
 
       <div className="hero-scroll-hint">

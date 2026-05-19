@@ -1,0 +1,97 @@
+.ideas {
+  background: var(--bg);
+  padding: 6rem 0;
+}
+
+.ideas-intro {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+  max-width: 620px;
+  margin-bottom: 4rem;
+}
+
+.ideas-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.industry-block {
+  border-top: 1px solid var(--border);
+  padding-top: 2.5rem;
+}
+
+.industry-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.industry-number {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--border);
+  line-height: 1;
+  min-width: 3rem;
+}
+
+.industry-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.ideas-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.idea-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.idea-card:hover {
+  border-color: var(--warm);
+  box-shadow: var(--shadow);
+}
+
+.idea-index {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--border);
+  line-height: 1;
+  min-width: 2rem;
+  padding-top: 2px;
+}
+
+.idea-body {
+  flex: 1;
+}
+
+.idea-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.01em;
+}
+
+.idea-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .ideas-list { grid-template-columns: 1fr; }
+}

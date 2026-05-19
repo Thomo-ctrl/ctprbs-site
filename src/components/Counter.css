@@ -1,0 +1,77 @@
+.counter {
+  margin-top: 3rem;
+  padding: 2.5rem;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(4px);
+  position: relative;
+  overflow: hidden;
+  max-width: 620px;
+}
+
+.counter::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: linear-gradient(to bottom, var(--warm), var(--accent));
+}
+
+.counter-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--warm);
+  margin-bottom: 0.75rem;
+}
+
+.counter-display {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.counter-currency {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.counter-number {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 300;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.counter-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  line-height: 1.6;
+}
+
+.counter-track {
+  margin-top: 1.25rem;
+  height: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.counter-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--warm), var(--accent));
+  transition: width 0.3s ease;
+}
+
+.counter-progress {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
