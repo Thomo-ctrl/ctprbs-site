@@ -51,6 +51,37 @@
   opacity: 0.6;
 }
 
+/* Percentage */
+.counter-pct-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+  animation: fadeUp 0.3s ease forwards;
+}
+
+.counter-pct {
+  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.counter-pct-symbol {
+  font-size: 0.8rem;
+  color: var(--warm);
+  font-weight: 300;
+}
+
+.counter-pct-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
 /* Breakdown */
 .counter-breakdown {
   margin-top: 0.85rem;

@@ -40,6 +40,14 @@ export default function Counter() {
         <p className="counter-remaining-hint">remaining to goal</p>
       )}
 
+      {revealed && (
+        <div className="counter-pct-wrap">
+          <span className="counter-pct serif">{((totalMade / GOAL) * 100).toFixed(2)}</span>
+          <span className="counter-pct-symbol">%</span>
+          <span className="counter-pct-label">of goal achieved</span>
+        </div>
+      )}
+
       {/* Industry breakdown — click the amount when revealed */}
       {revealed && (
         <div className="counter-breakdown" onClick={e => { e.stopPropagation(); setShowBreakdown(s => !s) }}>

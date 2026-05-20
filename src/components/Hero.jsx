@@ -11,11 +11,6 @@ export default function Hero({ navigate }) {
         <img src="/crest.jpg" alt="" className="hero-crest-img" />
       </div>
 
-      {/* CP Mark — top right */}
-      <div className="hero-mark" aria-hidden="true">
-        <img src="/crest.jpg" alt="" className="hero-mark-img" />
-      </div>
-
       {/* Faint wave SVG — top right */}
       <svg className="hero-waves" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
         <path d="M0,80 C80,20 160,140 240,60 S360,100 400,40"  fill="none" stroke="currentColor" strokeWidth="0.6" />

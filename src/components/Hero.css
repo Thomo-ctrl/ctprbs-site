@@ -23,34 +23,6 @@
 }
 
 .hero-crest-img {
-  /* Show only left half of image */
-  width: 200%;
-  height: 100%;
-  object-fit: cover;
-  object-position: left center;
-}
-
-/* === CP Mark — top-right corner, right half of crest.jpg === */
-.hero-mark {
-  position: absolute;
-  top: 5rem;
-  right: 3rem;
-  width: 160px;
-  height: 200px;
-  overflow: hidden;
-  opacity: 0.22;
-  filter: grayscale(40%);
-  pointer-events: none;
-  z-index: 4;
-  transition: opacity 0.4s ease, filter 0.4s ease;
-}
-
-.hero-mark:hover {
-  opacity: 0.55;
-  filter: grayscale(0%);
-}
-
-.hero-mark-img {
   /* Show only right half of image */
   width: 200%;
   height: 100%;

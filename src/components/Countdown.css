@@ -16,23 +16,25 @@
   animation: fadeUp 0.3s ease forwards;
 }
 
+/* ─── Single-line units row ────────────────────────── */
 .cd-units {
   display: flex;
   align-items: flex-end;
-  gap: 0.25rem;
-  flex-wrap: wrap;
+  gap: 0.2rem;
+  flex-wrap: nowrap;   /* never wrap */
+  white-space: nowrap;
 }
 
 .cd-unit {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.15rem;
-  min-width: 2rem;
+  gap: 0.1rem;
+  flex-shrink: 0;
 }
 
 .cd-value {
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.7rem);
   font-weight: 300;
   color: var(--text);
   line-height: 1;
@@ -41,8 +43,8 @@
 }
 
 .cd-name {
-  font-size: 0.55rem;
-  letter-spacing: 0.14em;
+  font-size: 0.5rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
   font-weight: 300;
@@ -50,17 +52,49 @@
 }
 
 .cd-sep {
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-size: clamp(1rem, 1.5vw, 1.4rem);
   color: var(--border);
   font-weight: 300;
   margin-bottom: 0.3rem;
   line-height: 1;
+  flex-shrink: 0;
 }
 
-/* Seconds pulse on tick */
-.cd-unit--seconds .cd-value {
+/* Seconds accent */
+.cd-unit--sec .cd-value {
   color: var(--warm);
-  opacity: 0.9;
+  opacity: 0.85;
+}
+
+/* ─── Percentage ───────────────────────────────────── */
+.cd-pct-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  margin-top: 0.6rem;
+  animation: fadeUp 0.3s ease forwards;
+}
+
+.cd-pct {
+  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.cd-pct-symbol {
+  font-size: 0.8rem;
+  color: var(--warm);
+  font-weight: 300;
+}
+
+.cd-pct-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0.7;
 }
 
 .cd-complete {
