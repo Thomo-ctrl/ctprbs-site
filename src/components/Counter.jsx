@@ -1,55 +1,67 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
+import { GOAL, EARNINGS } from '../data/earnings'
 import './Counter.css'
 
-function easeOutExpo(t) {
-  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t)
+const totalMade = EARNINGS.reduce((sum, e) => sum + e.amount, 0)
+const remaining = GOAL - totalMade
+
+function formatAmount(n) {
+  // Always format as 00,000,000,000.00 (11 digits, zero-padded)
+  const fixed = Math.abs(n).toFixed(2)
+  const [whole, dec] = fixed.split('.')
+  const padded = whole.padStart(11, '0')
+  const formatted = padded.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  return formatted + '.' + dec
 }
 
 export default function Counter() {
-  const [count, setCount] = useState(0)
-  const [started, setStarted] = useState(false)
-  const ref = useRef(null)
-  const TARGET = 37_000_000_000
-  const DURATION = 3000
+  const [revealed, setRevealed] = useState(false)
+  const [showBreakdown, setShowBreakdown] = useState(false)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting && !started) setStarted(true) },
-      { threshold: 0.3 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [started])
-
-  useEffect(() => {
-    if (!started) return
-    let startTime = null
-    let raf
-    const step = (timestamp) => {
-      if (!startTime) startTime = timestamp
-      const elapsed = timestamp - startTime
-      const progress = Math.min(elapsed / DURATION, 1)
-      setCount(Math.floor(easeOutExpo(progress) * TARGET))
-      if (progress < 1) raf = requestAnimationFrame(step)
-    }
-    raf = requestAnimationFrame(step)
-    return () => cancelAnimationFrame(raf)
-  }, [started])
-
-  const formatted = count.toLocaleString('en-KE')
+  const handleClick = () => {
+    setRevealed(r => !r)
+    setShowBreakdown(false)
+  }
 
   return (
-    <div className="counter" ref={ref}>
-      <p className="counter-label">The Goal</p>
-      <div className="counter-display">
+    <div className="counter-block" onClick={handleClick}>
+      {revealed && (
+        <p className="counter-label-reveal">AMOUNT MADE</p>
+      )}
+
+      <div className="counter-figure">
         <span className="counter-currency">KES</span>
-        <span className="counter-number serif">{formatted}</span>
+        <span className="counter-number serif">
+          {formatAmount(revealed ? totalMade : remaining)}
+        </span>
       </div>
-      <p className="counter-sub">Documenting the journey — from zero to 37 billion Kenya shillings</p>
-      <div className="counter-track">
-        <div className="counter-fill" style={{ width: '0.01%' }} />
-      </div>
-      <p className="counter-progress">Journey begins &rarr;</p>
+
+      {!revealed && (
+        <p className="counter-remaining-hint">remaining to goal</p>
+      )}
+
+      {/* Industry breakdown — click the amount when revealed */}
+      {revealed && (
+        <div className="counter-breakdown" onClick={e => { e.stopPropagation(); setShowBreakdown(s => !s) }}>
+          <button className="counter-breakdown-toggle">
+            {showBreakdown ? 'hide breakdown ↑' : 'by industry ↓'}
+          </button>
+          {showBreakdown && (
+            <ul className="counter-industry-list">
+              {EARNINGS.map(e => (
+                <li key={e.industry} className="counter-industry-row">
+                  <span className="ci-name">{e.industry}</span>
+                  <span className="ci-amount">KES {formatAmount(e.amount)}</span>
+                </li>
+              ))}
+              <li className="counter-industry-row counter-industry-total">
+                <span className="ci-name">Total</span>
+                <span className="ci-amount">KES {formatAmount(totalMade)}</span>
+              </li>
+            </ul>
+          )}
+        </div>
+      )}
     </div>
   )
 }

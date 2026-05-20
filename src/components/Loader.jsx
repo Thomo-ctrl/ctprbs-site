@@ -20,7 +20,16 @@ export default function Loader({ onComplete }) {
               strokeDasharray="339" strokeDashoffset="339"
               className="loader-ring-draw" />
           </svg>
-          <div className="loader-initials serif">CP</div>
+          {/* CP mark image — falls back to initials if file not yet placed */}
+          <div className="loader-mark-img-wrap">
+            <img
+              src="/cp-mark.png"
+              alt="CP"
+              className="loader-mark-img"
+              onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block' }}
+            />
+            <span className="loader-initials serif" style={{ display: 'none' }}>CP</span>
+          </div>
         </div>
         <p className="loader-phonetic">/&#44;k&#603;t&#601;r&#618;s &#712;par&#618;b&#650;s/</p>
         <p className="loader-latin">All other things being equal</p>
