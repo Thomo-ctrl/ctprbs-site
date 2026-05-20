@@ -43,7 +43,7 @@ export default function AboutPage() {
           and sequenced with intention.
         </p>
 
-        <p className="about-body" style={{ marginTop: '1.25rem' }}>
+        <p className="about-body" style={{ marginTop: '0.6rem' }}>
           Rooted in the belief that clarity of thought produces clarity of outcome, every
           project begins with the right question, not the obvious answer — and every idea
           is treated not as a dream, but as a project. Kenyan by origin, continental in

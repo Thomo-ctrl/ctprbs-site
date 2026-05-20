@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 3rem;
+  gap: 1.25rem;
   width: 100%;
 }
 
@@ -21,13 +21,17 @@
   text-align: left;
 }
 
-/* Body paragraphs */
+/* Tighten internal spacing */
+.about-block .section-label { margin-bottom: 0.3rem; }
+.about-block .section-title { margin-bottom: 0; }
+.about-block .divider       { margin: 0.75rem 0; }
+
+/* Body paragraphs — center aligned, full width */
 .about-body {
   font-size: 0.95rem;
   color: var(--text-muted);
-  line-height: 1.9;
-  text-align: justify;
-  hyphens: auto;
+  line-height: 1.85;
+  text-align: center;
   width: 100%;
 }
 
