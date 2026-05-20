@@ -7,29 +7,18 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0;
+  align-items: flex-start;
+  gap: 3rem;
   width: 100%;
 }
 
-/* ─── Each stacked block ──────────────────────────── */
+/* ─── Each stacked block — left aligned, full width ── */
 .about-block {
   width: 100%;
-  max-width: 680px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 3rem 0;
-}
-
-/* Horizontal rule between blocks */
-.about-rule {
-  width: 100%;
-  max-width: 680px;
-  height: 1px;
-  background: var(--border);
-  margin: 0 auto;
+  align-items: flex-start;
+  text-align: left;
 }
 
 /* Body paragraphs */
@@ -42,29 +31,23 @@
   width: 100%;
 }
 
-/* ─── LinkedIn link — gold, italic, underlined ─────── */
-.about-link {
-  display: inline-block;
-  margin-top: 1.75rem;
-  font-size: 0.85rem;
+/* ─── LinkedIn — gold, italic, underlined, inline ─── */
+.about-link--gold {
+  display: inline;
   font-style: italic;
   color: var(--warm);
   text-decoration: underline;
   text-underline-offset: 3px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   transition: opacity 0.2s, transform 0.2s;
+  white-space: nowrap;
 }
 
-.about-link--gold {
-  color: var(--warm);
-}
-
-.about-link:hover {
+.about-link--gold:hover {
   opacity: 0.7;
-  transform: translateY(-1px);
 }
 
-/* ─── Legacy grid (unused on page, kept for safety) ── */
+/* ─── Legacy grid (kept for safety) ──────────────── */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -80,5 +63,6 @@
 
 @media (max-width: 768px) {
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .about-block { padding: 2rem 0; }
+  .about-block { padding: 0; }
+  .about--page { gap: 2rem; }
 }
