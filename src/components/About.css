@@ -2,11 +2,69 @@
   background: var(--bg);
 }
 
-/* When used as a standalone page inside PageLayout */
+/* Standalone page inside PageLayout */
 .about--page {
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
 }
 
+/* ─── Each stacked block ──────────────────────────── */
+.about-block {
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 0;
+}
+
+/* Horizontal rule between blocks */
+.about-rule {
+  width: 100%;
+  max-width: 680px;
+  height: 1px;
+  background: var(--border);
+  margin: 0 auto;
+}
+
+/* Body paragraphs */
+.about-body {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.9;
+  text-align: justify;
+  hyphens: auto;
+  width: 100%;
+}
+
+/* ─── LinkedIn link — gold, italic, underlined ─────── */
+.about-link {
+  display: inline-block;
+  margin-top: 1.75rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--warm);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  letter-spacing: 0.04em;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.about-link--gold {
+  color: var(--warm);
+}
+
+.about-link:hover {
+  opacity: 0.7;
+  transform: translateY(-1px);
+}
+
+/* ─── Legacy grid (unused on page, kept for safety) ── */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -20,25 +78,7 @@
   line-height: 1.85;
 }
 
-.about-link {
-  display: inline-block;
-  margin-top: 1.5rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  border-bottom: 1px solid var(--accent);
-  padding-bottom: 2px;
-  transition: opacity 0.2s;
-}
-
-.about-link:hover {
-  opacity: 0.65;
-}
-
 @media (max-width: 768px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-block { padding: 2rem 0; }
 }
