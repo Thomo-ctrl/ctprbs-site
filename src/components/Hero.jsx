@@ -55,9 +55,11 @@ export default function Hero({ navigate }) {
             </p>
             <p className="hero-sub-body">
               Ceteris Paribus is a company devoted to documenting the personal journey of
-              Jaka&apos; Thomo Ka&apos;Thomo — from KES&nbsp;0 to KES&nbsp;37,000,000,000.
-              A living record of strategy, discipline, and the compound effect of
-              well-chosen ideas, pursued with intention.
+              Ja&apos;ka Thomo Ka&apos; Thomo&mdash;from KES&nbsp;0 to KES&nbsp;37,000,000,000;
+              a living record of strategy, discipline, and the compound effect of well-chosen
+              ideas pursued with intention, through business, conversations, and progress&mdash;where
+              dreams are engineered into reality, opportunities are created, and others are inspired
+              to discover, shape, and pursue their own path along the way.
             </p>
           </div>
 
