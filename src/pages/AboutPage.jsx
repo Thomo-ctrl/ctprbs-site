@@ -40,14 +40,10 @@ export default function AboutPage() {
           consulting and content, Ja&apos;Ka brings a rare combination of analytical rigour
           and creative instinct to every engagement, across a portfolio that spans media,
           finance, infrastructure, sports, advocacy, and consumer goods — clustered, named,
-          and sequenced with intention.
-        </p>
-
-        <p className="about-body" style={{ marginTop: '0.6rem' }}>
-          Rooted in the belief that clarity of thought produces clarity of outcome, every
-          project begins with the right question, not the obvious answer — and every idea
-          is treated not as a dream, but as a project. Kenyan by origin, continental in
-          ambition, and deliberate in everything.{' '}
+          and sequenced with intention. Rooted in the belief that clarity of thought produces
+          clarity of outcome, every project begins with the right question, not the obvious
+          answer — and every idea is treated not as a dream, but as a project. Kenyan by
+          origin, continental in ambition, and deliberate in everything.{' '}
           <a
             href="https://www.linkedin.com/in/thomo-r-k-nyanjom-4a3a8740"
             target="_blank"

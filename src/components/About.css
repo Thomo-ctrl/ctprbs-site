@@ -7,31 +7,39 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;      /* center the blocks horizontally */
   gap: 1.25rem;
   width: 100%;
 }
 
-/* ─── Each stacked block — left aligned, full width ── */
+/* ─── Each stacked block — centered container, left-aligned headings ── */
 .about-block {
   width: 100%;
+  max-width: 620px;         /* centered column */
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-start;  /* headings stay left */
   text-align: left;
 }
 
 /* Tighten internal spacing */
 .about-block .section-label { margin-bottom: 0.3rem; }
-.about-block .section-title { margin-bottom: 0; }
 .about-block .divider       { margin: 0.75rem 0; }
 
-/* Body paragraphs — center aligned, full width */
+/* Smaller headings — About page only */
+.about-block .section-title {
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  margin-bottom: 0;
+}
+
+/* Body paragraphs — justified text */
 .about-body {
   font-size: 0.95rem;
   color: var(--text-muted);
   line-height: 1.85;
-  text-align: center;
+  text-align: justify;
+  hyphens: auto;
   width: 100%;
 }
 
@@ -43,13 +51,11 @@
   text-decoration: underline;
   text-underline-offset: 3px;
   letter-spacing: 0.02em;
-  transition: opacity 0.2s, transform 0.2s;
+  transition: opacity 0.2s;
   white-space: nowrap;
 }
 
-.about-link--gold:hover {
-  opacity: 0.7;
-}
+.about-link--gold:hover { opacity: 0.7; }
 
 /* ─── Legacy grid (kept for safety) ──────────────── */
 .about-grid {
@@ -67,6 +73,6 @@
 
 @media (max-width: 768px) {
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .about-block { padding: 0; }
+  .about-block { max-width: 100%; padding: 0; }
   .about--page { gap: 2rem; }
 }
