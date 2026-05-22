@@ -23,7 +23,7 @@ export default function Loader({ onComplete }) {
           {/* CP mark image — falls back to initials if file not yet placed */}
           <div className="loader-mark-img-wrap">
             <img
-              src="/cp-mark.png"
+              src="/cp-mark-loader.png"
               alt="CP"
               className="loader-mark-img"
               onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block' }}
