@@ -14,10 +14,10 @@ export default function Loader({ onComplete }) {
     <div className={`loader ${hiding ? 'loader--hide' : ''}`}>
       <div className="loader-inner">
         <div className="loader-mark-ring">
-          <svg viewBox="0 0 120 120" className="loader-ring-svg">
-            <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(180,150,80,0.25)" strokeWidth="1" />
-            <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(180,150,80,0.8)" strokeWidth="1"
-              strokeDasharray="339" strokeDashoffset="339"
+          <svg viewBox="0 0 140 140" className="loader-ring-svg">
+            <circle cx="70" cy="70" r="64" fill="none" stroke="rgba(180,150,80,0.25)" strokeWidth="1" />
+            <circle cx="70" cy="70" r="64" fill="none" stroke="rgba(180,150,80,0.8)" strokeWidth="1"
+              strokeDasharray="402" strokeDashoffset="402"
               className="loader-ring-draw" />
           </svg>
           {/* CP mark image — falls back to initials if file not yet placed */}
