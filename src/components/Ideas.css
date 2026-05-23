@@ -39,8 +39,8 @@
   background: linear-gradient(
     to right,
     transparent 0%,
-    var(--border) 25%,
-    var(--border) 75%,
+    var(--border) 40%,
+    var(--border) 60%,
     transparent 100%
   );
 }
