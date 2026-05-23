@@ -3,8 +3,8 @@ import './PageLayout.css'
 const PAGES = [
   { id: 'about',    label: 'About' },
   { id: 'services', label: 'Services' },
-  { id: 'ideas',    label: 'The Blueprint' },
   { id: 'journey',  label: 'The Journey', gold: true },
+  { id: 'ideas',    label: 'The Blueprint' },
   { id: 'igc',      label: 'In Great Company' },
   { id: 'contact',  label: 'Contact' },
 ]

@@ -4,7 +4,12 @@ export default function JourneyPage() {
   return (
     <div className="journey journey--page">
 
-      {/* ── Hero statement ── */}
+      {/* ── Eyebrow ── */}
+      <div className="journey-eyebrow">
+        <span className="section-label">The Journey</span>
+      </div>
+
+      {/* ── Headline ── */}
       <h2 className="journey-headline">
         <span>843 APPLICATIONS</span>
         <span className="journey-dot">.</span>
@@ -14,9 +19,16 @@ export default function JourneyPage() {
         <span className="journey-dot">.</span>
       </h2>
 
+      <div className="journey-divider" />
+
+      {/* ── Tagline ── */}
+      <p className="journey-tagline serif">
+        &ldquo;I stopped waiting to be chosen.&rdquo;
+      </p>
+
       {/* ── Body ── */}
-      <div className="journey-body">
-        <p>
+      <div className="journey-sub-block">
+        <p className="journey-sub-body">
           I stopped waiting to be chosen and started building the thing worth choosing.
           I stopped asking for space in someone else's blueprint and drew my own.
           Everything I would have brought to those companies — the strategy, the ideas,
@@ -25,20 +37,20 @@ export default function JourneyPage() {
 
         <p className="journey-aside">A consultancy. My consultancy.</p>
 
-        <p>
+        <p className="journey-sub-body">
           This is the documentation of that journey. Not polished. Not edited.
           Real — for everyone who has been told no enough times to start asking
           better questions, making better plans, going for things, in spite of
           fear and doubt.
         </p>
 
-        <p>
+        <p className="journey-sub-body">
           We are building 20 revenue streams, along the way, learning from
           industry experts, and proving that the gap between rejection and
           reinvention is smaller than it looks.
         </p>
 
-        <p>Come watch. Better yet — come build.</p>
+        <p className="journey-sub-body">Come watch. Better yet — come build.</p>
       </div>
 
       {/* ── Sign-off ── */}

@@ -4,39 +4,64 @@
   max-width: 620px;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 0;
+}
+
+/* ── Eyebrow ────────────────────────────────── */
+.journey-eyebrow {
+  margin-bottom: 1rem;
 }
 
 /* ── Headline ───────────────────────────────── */
 .journey-headline {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.2;
   color: var(--text);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.3rem;
-  margin: 0;
+  margin: 0 0 0 0;
 }
 
 .journey-dot {
   color: var(--warm);
   font-weight: 700;
-  margin: 0 0.15rem;
+  margin: 0 0.1rem;
 }
 
-/* ── Body copy ──────────────────────────────── */
-.journey-body {
+/* ── Divider ────────────────────────────────── */
+.journey-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--warm);
+  margin: 1.4rem 0;
+  opacity: 0.6;
+}
+
+/* ── Tagline ────────────────────────────────── */
+.journey-tagline {
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+  margin: 0 0 1.6rem 0;
+  line-height: 1.4;
+}
+
+/* ── Sub block ──────────────────────────────── */
+.journey-sub-block {
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
+  gap: 1.2rem;
 }
 
-.journey-body p {
-  font-size: 0.95rem;
+.journey-sub-body {
+  font-size: 0.93rem;
   color: var(--text-muted);
   line-height: 1.9;
   text-align: justify;
@@ -46,10 +71,10 @@
 
 .journey-aside {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.15rem !important;
+  font-size: 1.1rem;
   font-style: italic;
-  color: var(--text) !important;
-  text-align: left !important;
+  color: var(--text);
+  margin: 0.2rem 0;
 }
 
 /* ── Sign-off ───────────────────────────────── */
@@ -58,7 +83,7 @@
   align-items: baseline;
   justify-content: center;
   gap: 1.2rem;
-  margin-top: 1rem;
+  margin-top: 2.5rem;
   font-size: 0.72rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -73,5 +98,6 @@
 
 @media (max-width: 768px) {
   .journey--page { max-width: 100%; }
-  .journey-headline { font-size: 1.3rem; }
+  .journey-headline { font-size: 1.5rem; }
+  .journey-tagline  { font-size: 1.1rem; }
 }
