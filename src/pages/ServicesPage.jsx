@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import '../components/Services.css'
 
 const services = [
@@ -28,6 +29,10 @@ const services = [
 ]
 
 export default function ServicesPage() {
+  const [open, setOpen] = useState(null)
+
+  const toggle = (i) => setOpen(open === i ? null : i)
+
   return (
     <div className="services services--page">
       <div className="services-header">
@@ -35,21 +40,32 @@ export default function ServicesPage() {
         <h2 className="section-title">Our Services</h2>
       </div>
 
-      <div className="services-grid">
-        {services.map(s => (
-          <div key={s.number} className="service-card">
-            <span className="service-number serif">{s.number}</span>
-            <h3 className="service-title serif">{s.title}</h3>
-            <div className="divider" />
-            <p className="service-desc">{s.description}</p>
-            <ul className="service-list">
-              {s.offering.map(item => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
+      <ol className="services-list">
+        {services.map((s, i) => (
+          <li key={s.number} className="service-item">
+            <button
+              className={`service-row ${open === i ? 'service-row--open' : ''}`}
+              onClick={() => toggle(i)}
+              aria-expanded={open === i}
+            >
+              <span className="service-num serif">{s.number}</span>
+              <span className="service-heading serif">{s.title}</span>
+              <span className="service-chevron" aria-hidden="true">
+                {open === i ? '−' : '+'}
+              </span>
+            </button>
+
+            <div className={`service-body ${open === i ? 'service-body--open' : ''}`}>
+              <p className="service-desc">{s.description}</p>
+              <ul className="service-offering">
+                {s.offering.map(item => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   )
 }
