@@ -1,43 +1,49 @@
-.contact {
-  background: var(--bg);
-}
-
 .contact--page {
   padding: 0;
-}
-
-.contact-inner {
-  max-width: 700px;
+  max-width: 620px;
 }
 
 .contact-sub {
   font-size: 0.95rem;
   color: var(--text-muted);
   line-height: 1.85;
-  max-width: 520px;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
+/* ── Contact list — bare, no cards ─────────────── */
 .contact-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .contact-card {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 2rem;
-  border: 1px solid var(--border);
-  background: var(--bg-card);
-  transition: all 0.25s ease;
-  cursor: pointer;
+  align-items: baseline;
+  gap: 2rem;
+  padding: 1.3rem 0;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transition: opacity 0.2s;
 }
 
-.contact-card:hover {
-  border-color: var(--accent);
-  box-shadow: var(--shadow);
+.contact-card:hover { opacity: 0.7; }
+
+.contact-card:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--border) 45%,
+    var(--border) 55%,
+    transparent 100%
+  );
 }
 
 .contact-card-label {
@@ -45,24 +51,28 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--warm);
+  min-width: 5rem;
+  flex-shrink: 0;
 }
 
 .contact-card-title {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   font-weight: 400;
   color: var(--text);
+  flex: 1;
 }
 
 .contact-card-action {
-  margin-top: 0.5rem;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
+  flex-shrink: 0;
 }
 
 @media (max-width: 640px) {
-  .contact-cards {
-    grid-template-columns: 1fr;
+  .contact-card {
+    flex-direction: column;
+    gap: 0.4rem;
   }
 }
