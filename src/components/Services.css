@@ -21,11 +21,20 @@
 }
 
 .service-item {
-  border-bottom: 1px solid var(--border);
+  position: relative;
 }
 
-.service-item:last-child {
-  border-bottom: none;
+.service-item:not(:last-child)::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--border) 25%,
+    var(--border) 75%,
+    transparent 100%
+  );
 }
 
 /* ── Clickable heading row ───────────────────── */
