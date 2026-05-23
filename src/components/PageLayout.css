@@ -61,12 +61,12 @@
 }
 
 .pl-nav-item {
+  position: relative;
   display: block;
   width: 100%;
   text-align: left;
   background: none;
   border: none;
-  border-bottom: 1px solid transparent;
   cursor: pointer;
   padding: 0.55rem 0;
   font-size: 0.8rem;
@@ -75,7 +75,7 @@
   color: var(--text-muted);
   font-weight: 300;
   font-family: 'Inter', sans-serif;
-  transition: color 0.2s, border-color 0.2s, transform 0.2s;
+  transition: color 0.2s, transform 0.2s;
 }
 
 .pl-nav-item:hover {
@@ -86,7 +86,22 @@
 .pl-nav-item--active {
   color: var(--accent);
   font-weight: 400;
-  border-bottom-color: var(--accent);
+}
+
+.pl-nav-item--active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--accent) 25%,
+    var(--accent) 75%,
+    transparent 100%
+  );
 }
 
 /* Faint CP mark at bottom of sidebar */
