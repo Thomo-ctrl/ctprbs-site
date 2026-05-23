@@ -4,18 +4,30 @@ import '../components/Services.css'
 const services = [
   {
     number: '01',
-    title: 'Consulting & Strategy',
+    title: 'Consulting',
     description:
-      'We work at the intersection of insight and action. From organisational strategy to market positioning, we help clients make sharper decisions with lasting effect. Our approach is rigorous, independent, and always grounded in your specific context.',
+      'We work with organisations and individuals who need a clear-eyed external perspective. From diagnostic assessments to ongoing advisory, we bring rigorous thinking, sector experience, and an independent voice to your most important decisions.',
     offering: [
-      'Strategic planning & roadmapping',
-      'Market & competitive analysis',
-      'Organisational design',
-      'Decision frameworks & advisory',
+      'Organisational diagnostics & advisory',
+      'Market entry & competitive analysis',
+      'Stakeholder engagement & facilitation',
+      'Decision frameworks & board support',
     ],
   },
   {
     number: '02',
+    title: 'Strategy',
+    description:
+      'Strategy is not a document — it is a set of choices that hold under pressure. We help clients define where to compete, how to win, and what to stop doing. Our approach is direct, evidence-based, and always grounded in your specific context.',
+    offering: [
+      'Strategic planning & roadmapping',
+      'Organisational design & restructuring',
+      'Growth strategy & positioning',
+      'Scenario planning & risk framing',
+    ],
+  },
+  {
+    number: '03',
     title: 'Content & Writing',
     description:
       'Ideas deserve clear expression. We craft content that informs, persuades, and endures — from thought leadership and brand narratives to reports and communications that build trust and authority over time.',
