@@ -3,7 +3,8 @@ import './PageLayout.css'
 const PAGES = [
   { id: 'about',    label: 'About' },
   { id: 'services', label: 'Services' },
-  { id: 'ideas',    label: 'Blueprint' },
+  { id: 'ideas',    label: 'The Blueprint' },
+  { id: 'journey',  label: 'The Journey', gold: true },
   { id: 'igc',      label: 'In Great Company' },
   { id: 'contact',  label: 'Contact' },
 ]
@@ -25,7 +26,7 @@ export default function PageLayout({ currentPage, navigate, children }) {
             {PAGES.map(p => (
               <li key={p.id}>
                 <button
-                  className={`pl-nav-item ${currentPage === p.id ? 'pl-nav-item--active' : ''}`}
+                  className={`pl-nav-item ${currentPage === p.id ? 'pl-nav-item--active' : ''} ${p.gold ? 'pl-nav-item--gold' : ''}`}
                   onClick={() => navigate(p.id)}
                 >
                   {p.label}

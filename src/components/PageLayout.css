@@ -88,6 +88,27 @@
   font-weight: 400;
 }
 
+/* ── The Journey — permanent gold underline ── */
+.pl-nav-item--gold {
+  color: var(--warm);
+}
+
+.pl-nav-item--gold::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--warm) 45%,
+    var(--warm) 55%,
+    transparent 100%
+  );
+}
+
 .pl-nav-item--active::after {
   content: '';
   position: absolute;

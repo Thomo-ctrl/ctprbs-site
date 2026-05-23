@@ -7,6 +7,7 @@ import AboutPage from './pages/AboutPage'
 import ServicesPage from './pages/ServicesPage'
 import IdeasPage from './pages/IdeasPage'
 import InGreatCompany from './pages/InGreatCompany'
+import JourneyPage from './pages/JourneyPage'
 import ContactPage from './pages/ContactPage'
 import Footer from './components/Footer'
 
@@ -38,6 +39,7 @@ export default function App() {
             {page === 'about'    && <AboutPage />}
             {page === 'services' && <ServicesPage />}
             {page === 'ideas'    && <IdeasPage />}
+            {page === 'journey'  && <JourneyPage />}
             {page === 'igc'      && <InGreatCompany />}
             {page === 'contact'  && <ContactPage />}
           </PageLayout>
