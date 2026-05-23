@@ -98,8 +98,8 @@
   background: linear-gradient(
     to right,
     transparent 0%,
-    var(--accent) 40%,
-    var(--accent) 60%,
+    var(--accent) 45%,
+    var(--accent) 55%,
     transparent 100%
   );
 }
