@@ -1,97 +1,146 @@
-.ideas {
-  background: var(--bg);
-  padding: 6rem 0;
+.ideas--page {
+  background: transparent;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ideas-header {
+  margin-bottom: 2.5rem;
 }
 
 .ideas-intro {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
   line-height: 1.85;
   max-width: 620px;
-  margin-bottom: 4rem;
+  margin-top: 0.75rem;
 }
 
-.ideas-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
+/* ── Accordion list ─────────────────────────── */
+.ideas-accordion {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 620px;
 }
 
-.industry-block {
-  border-top: 1px solid var(--border);
-  padding-top: 2.5rem;
+.ideas-item {
+  position: relative;
 }
 
-.industry-header {
+.ideas-item:not(:last-child)::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--border) 25%,
+    var(--border) 75%,
+    transparent 100%
+  );
+}
+
+/* ── Clickable heading row ───────────────────── */
+.ideas-row {
+  width: 100%;
   display: flex;
   align-items: baseline;
   gap: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.industry-number {
-  font-size: 2.5rem;
-  font-weight: 300;
-  color: var(--border);
-  line-height: 1;
-  min-width: 3rem;
-}
-
-.industry-name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.5rem;
-  font-weight: 400;
+  padding: 1.1rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
   color: var(--text);
+  transition: opacity 0.2s;
 }
 
-.ideas-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
+.ideas-row:hover { opacity: 0.7; }
 
-.idea-card {
-  display: flex;
-  gap: 1rem;
-  padding: 1.5rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  transition: border-color 0.25s, box-shadow 0.25s;
-}
-
-.idea-card:hover {
-  border-color: var(--warm);
-  box-shadow: var(--shadow);
-}
-
-.idea-index {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.6rem;
+.ideas-num {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
   font-weight: 300;
-  color: var(--border);
-  line-height: 1;
+  flex-shrink: 0;
   min-width: 2rem;
-  padding-top: 2px;
 }
 
-.idea-body {
+.ideas-heading {
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-weight: 400;
   flex: 1;
-}
-
-.idea-title {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 0.4rem;
   letter-spacing: 0.01em;
 }
 
-.idea-desc {
+.ideas-chevron {
+  font-size: 1.1rem;
+  color: var(--warm);
+  font-weight: 300;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* ── Dropdown body ───────────────────────────── */
+.ideas-body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0 0 0 3.2rem;
+}
+
+.ideas-body--open {
+  max-height: 800px;
+  padding: 0 0 1.5rem 3.2rem;
+}
+
+/* ── Sub-list of ideas ───────────────────────── */
+.idea-sublist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.idea-subitem {
+  display: flex;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.idea-subnum {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--border);
+  line-height: 1.4;
+  min-width: 1.5rem;
+  flex-shrink: 0;
+}
+
+.idea-subcontent {
+  flex: 1;
+}
+
+.idea-subtitle {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.01em;
+}
+
+.idea-subdesc {
   font-size: 0.82rem;
   color: var(--text-muted);
   line-height: 1.7;
 }
 
 @media (max-width: 768px) {
-  .ideas-list { grid-template-columns: 1fr; }
+  .ideas-accordion { max-width: 100%; }
+  .ideas-heading { font-size: 1rem; }
 }

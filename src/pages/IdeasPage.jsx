@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import '../components/Ideas.css'
 
 const industries = [
   {
+    number: '01',
     name: 'Technology & Digital',
     ideas: [
       { title: 'SME Financial SaaS', desc: 'Cloud platform helping small businesses track revenue, expenses and growth milestones in real time.' },
@@ -11,6 +13,7 @@ const industries = [
     ],
   },
   {
+    number: '02',
     name: 'Real Estate & Property',
     ideas: [
       { title: 'Affordable Mixed-Use Development', desc: 'High-density residential and retail spaces targeting Kenya\'s rising middle class in satellite towns.' },
@@ -20,6 +23,7 @@ const industries = [
     ],
   },
   {
+    number: '03',
     name: 'Agriculture & Agribusiness',
     ideas: [
       { title: 'Export Horticulture Contract Farming', desc: 'Aggregating smallholder flower and vegetable farmers to supply certified EU and UK export markets.' },
@@ -29,6 +33,7 @@ const industries = [
     ],
   },
   {
+    number: '04',
     name: 'Media & Communications',
     ideas: [
       { title: 'Executive Thought Leadership Studio', desc: 'Ghostwriting, editorial strategy and publishing for C-suite leaders, boards and public figures.' },
@@ -38,6 +43,7 @@ const industries = [
     ],
   },
   {
+    number: '05',
     name: 'Financial Services & Consulting',
     ideas: [
       { title: 'SME Growth Capital Advisory', desc: 'Matching small businesses with appropriate debt and equity financing across Kenyan and DFI networks.' },
@@ -49,37 +55,53 @@ const industries = [
 ]
 
 export default function IdeasPage() {
+  const [open, setOpen] = useState(null)
+
+  const toggle = (i) => setOpen(open === i ? null : i)
+
   return (
     <div className="ideas ideas--page">
-      <p className="section-label">The Blueprint</p>
-      <h2 className="section-title">20 Ideas. One Destination.</h2>
-      <p className="ideas-intro">
-        Each idea is a vehicle — built to generate revenue, create value and compound toward the goal.
-        Some will be sold. Others will become the engine of ongoing consulting practices.
-        All are grounded in real market demand.
-      </p>
-
-      <div className="ideas-grid">
-        {industries.map((ind, i) => (
-          <div key={ind.name} className="industry-block">
-            <div className="industry-header">
-              <span className="industry-number serif">{String(i + 1).padStart(2, '0')}</span>
-              <h3 className="industry-name">{ind.name}</h3>
-            </div>
-            <div className="ideas-list">
-              {ind.ideas.map((idea, j) => (
-                <div key={idea.title} className="idea-card">
-                  <div className="idea-index">{i * 4 + j + 1}</div>
-                  <div className="idea-body">
-                    <h4 className="idea-title">{idea.title}</h4>
-                    <p className="idea-desc">{idea.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
+      <div className="ideas-header">
+        <p className="section-label">The Blueprint</p>
+        <h2 className="section-title">20 Ideas. One Destination.</h2>
+        <p className="ideas-intro">
+          Each idea is a vehicle — built to generate revenue, create value and compound toward the goal.
+          Some will be sold. Others will become the engine of ongoing consulting practices.
+          All are grounded in real market demand.
+        </p>
       </div>
+
+      <ol className="ideas-accordion">
+        {industries.map((ind, i) => (
+          <li key={ind.number} className="ideas-item">
+            <button
+              className={`ideas-row ${open === i ? 'ideas-row--open' : ''}`}
+              onClick={() => toggle(i)}
+              aria-expanded={open === i}
+            >
+              <span className="ideas-num serif">{ind.number}</span>
+              <span className="ideas-heading serif">{ind.name}</span>
+              <span className="ideas-chevron" aria-hidden="true">
+                {open === i ? '−' : '+'}
+              </span>
+            </button>
+
+            <div className={`ideas-body ${open === i ? 'ideas-body--open' : ''}`}>
+              <ol className="idea-sublist">
+                {ind.ideas.map((idea, j) => (
+                  <li key={idea.title} className="idea-subitem">
+                    <span className="idea-subnum serif">{i * 4 + j + 1}</span>
+                    <div className="idea-subcontent">
+                      <h4 className="idea-subtitle">{idea.title}</h4>
+                      <p className="idea-subdesc">{idea.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </li>
+        ))}
+      </ol>
     </div>
   )
 }
